@@ -123,7 +123,7 @@ std::optional<std::vector<int>> FindMinGroup(Skills& requiredSkills, const Peopl
 
 void PrintMinGroup(const std::vector<int>& people)
 {
-	std::cout << "Min group (People I): ";
+	std::cout << "Min group (People): ";
 	for (int person : people)
 	{
 		std::cout << person << " ";
