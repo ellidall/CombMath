@@ -35,3 +35,7 @@ struct Graph
 		adjList[dest].emplace_back(src);
 	}
 };
+
+Graph InitializeGraph();
+std::vector<size_t> FindArticulationPoints(Graph& graph);
+void PrintArticulationPoints(std::vector<size_t> articulationPoints);

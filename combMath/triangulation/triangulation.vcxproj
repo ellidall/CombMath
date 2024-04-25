@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{03cda498-bf15-4796-b3ac-f5c71f033941}</ProjectGuid>
-    <RootNamespace>articulationPointstests</RootNamespace>
+    <ProjectGuid>{d0b936ec-07ad-42e9-a76b-ef91672630f6}</ProjectGuid>
+    <RootNamespace>triangulation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -131,23 +131,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\articulationPoints\FindArticulationPoints.cpp" />
-    <ClCompile Include="ArticulationPoints-tests.cpp" />
+    <ClCompile Include="DelaunayTriangulation.cpp" />
+    <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\articulationPoints\FindArticulationPoints.h" />
+    <ClInclude Include="DelaunayTriangulation.h" />
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\boost.1.84.0\build\boost.targets" Condition="Exists('..\packages\boost.1.84.0\build\boost.targets')" />
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\boost.1.84.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.84.0\build\boost.targets'))" />
-  </Target>
 </Project>
