@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d0b936ec-07ad-42e9-a76b-ef91672630f6}</ProjectGuid>
-    <RootNamespace>triangulation</RootNamespace>
+    <ProjectGuid>{9a6308dc-72da-4d5f-ae73-1ed994d1d558}</ProjectGuid>
+    <RootNamespace>dTriangulation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -132,16 +132,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DelaunayTriangulation.cpp" />
-    <ClCompile Include="Edge.cpp" />
-    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DelaunayTriangulation.h" />
-    <ClInclude Include="Edge.h" />
-    <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

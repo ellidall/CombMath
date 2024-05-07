@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4eac7a90-5ff9-42df-a31a-a8ff4489c72d}</ProjectGuid>
-    <RootNamespace>triang</RootNamespace>
+    <ProjectGuid>{3f099225-f85d-4299-968e-6fb48b588a31}</ProjectGuid>
+    <RootNamespace>spanningTreesCounttests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -131,7 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="triang.cpp" />
+    <ClCompile Include="..\spanningTreesCount\SpanningTrees.cpp" />
+    <ClCompile Include="spanningTreesCount-tests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\spanningTreesCount\SpanningTrees.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
