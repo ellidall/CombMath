@@ -41,22 +41,27 @@ TEST_CASE("Test CreateMinorMatrix")
 
 TEST_CASE("Test GetMatrixDet")
 {
-	Matrix matrix1 = {
-		{  2, -1, -1,  0 },
-		{ -1,  3, -1, -1 },
-		{ -1, -1,  3, -1 },
-		{  0, -1, -1,  2 }
-	};
-	int det1 = GetMatrixDet(matrix1);
-	REQUIRE(det1 == 0);
-
-	Matrix matrix2 = {
-		{ 3, -1, -1 },
-		{ -1, 3, -1 },
-		{ -1, -1, 2 }
-	};
-	int det2 = GetMatrixDet(matrix2);
-	REQUIRE(det2 == 8);
+	WHEN("det = 0")
+	{
+		Matrix matrix = {
+			{ 2, -1, -1, 0 },
+			{ -1, 3, -1, -1 },
+			{ -1, -1, 3, -1 },
+			{ 0, -1, -1, 2 }
+		};
+		int det = GetMatrixDet(matrix);
+		REQUIRE(det == 0);
+	}
+	WHEN("det <> 0")
+	{
+		Matrix matrix = {
+			{ 3, -1, -1 },
+			{ -1, 3, -1 },
+			{ -1, -1, 2 }
+		};
+		int det = GetMatrixDet(matrix);
+		REQUIRE(det == 8);
+	}
 }
 
 TEST_CASE("Test CountSpanningTreesByKirchhoffMatrix")
@@ -85,5 +90,18 @@ TEST_CASE("Test CountSpanningTreesByKirchhoffMatrix")
 		const Matrix kirchhoffMatrix = BuildKirchhoffMatrixByAdjacencyMatrix(adjacencyMatrix);
 		int count = CountSpanningTreesByKirchhoffMatrix(kirchhoffMatrix);
 		REQUIRE(count == 125);
+	}
+	WHEN("binary tree")
+	{
+		const Matrix adjacencyMatrix = {
+			{ 0, 1, 1, 0, 0 },
+			{ 1, 0, 0, 1, 1 },
+			{ 1, 0, 0, 0, 0 },
+			{ 0, 1, 0, 0, 0 },
+			{ 0, 1, 0, 0, 0 },
+		};
+		const Matrix kirchhoffMatrix = BuildKirchhoffMatrixByAdjacencyMatrix(adjacencyMatrix);
+		int count = CountSpanningTreesByKirchhoffMatrix(kirchhoffMatrix);
+		REQUIRE(count == 1);
 	}
 }

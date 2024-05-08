@@ -23,10 +23,10 @@ Matrix BuildKirchhoffMatrixByAdjacencyMatrix(const Matrix& adjacencyMatrix)
 	int matrixSize = adjacencyMatrix.size();
 	Matrix kirchhoffMatrix = InitializeMatrixByZero(matrixSize);
 
-	for (int i = 0; i < matrixSize; i++)
+	for (size_t i = 0; i < matrixSize; i++)
 	{
 		int degree = 0;
-		for (int j = 0; j < matrixSize; j++)
+		for (size_t j = 0; j < matrixSize; j++)
 		{
 			if (i != j)
 			{
@@ -45,11 +45,11 @@ Matrix CreateMinorMatrix(const Matrix& matrix, int i)
 	int matrixSize = matrix.size();
 	Matrix minorMatrix = InitializeMatrixByZero(matrixSize - 1);
 
-	for (int j = 0, row = 0; j < matrixSize; j++)
+	for (size_t j = 0, row = 0; j < matrixSize; j++)
 	{
 		if (j == i)
 			continue;
-		for (int k = 0, col = 0; k < matrixSize; k++)
+		for (size_t k = 0, col = 0; k < matrixSize; k++)
 		{
 			if (k == i)
 				continue;
@@ -67,18 +67,18 @@ int GetMatrixDet(Matrix& matrix)
 	int n = matrix.size();
 	int det = 1;
 
-	for (int i = 0; i < n; i++)
+	for (size_t i = 0; i < n; i++)
 	{
-		for (int j = i + 1; j < n; j++)
+		for (size_t j = i + 1; j < n; j++)
 		{
 			while (matrix[j][i] != 0)
 			{
 				int t = matrix[i][i] / matrix[j][i];
-				for (int k = i; k < n; k++)
+				for (size_t k = i; k < n; k++)
 				{
 					matrix[i][k] -= t * matrix[j][k];
 				}
-				for (int k = i; k < n; k++)
+				for (size_t k = i; k < n; k++)
 				{
 					std::swap(matrix[i][k], matrix[j][k]);
 				}
@@ -96,13 +96,10 @@ int CountSpanningTreesByKirchhoffMatrix(const Matrix& kirchhoffMatrix)
 	int matrixSize = kirchhoffMatrix.size();
 	int totalSpanningTrees = 0;
 
-	for (int i = 0; i < matrixSize; i++)
-	{
-		Matrix minor = CreateMinorMatrix(kirchhoffMatrix, i);
-		totalSpanningTrees += GetMatrixDet(minor);
-	}
+	Matrix minor = CreateMinorMatrix(kirchhoffMatrix, matrixSize - 1);
+	totalSpanningTrees = GetMatrixDet(minor);
 
-	return totalSpanningTrees / matrixSize;
+	return totalSpanningTrees;
 }
 
 bool AreMatricesEqual(const Matrix& matrix1, const Matrix& matrix2)
